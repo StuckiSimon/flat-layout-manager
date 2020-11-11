@@ -44,6 +44,7 @@ const objects = [
   { x: 35, y: 603, fill: '#c0c0c0', width: 66, height: 200, text: 'Closet' },
   { x: 1280, y: 330, fill: '#d0d0d0', text: 'Desk', width: 75, height: 150 },
   { x: 280, y: 600, fill: '#e0e0e0', width: 48, height: 80, text: 'Malm' },
+  { x: 280, y: 520, fill: '#e0e0e0', width: 48, height: 80, text: 'Malm' },
   {
     x: 1020,
     y: 570,

@@ -56,7 +56,7 @@ function App() {
           <Line
             points={[i * 10, 0, i * 10, window.innerHeight]}
             tension={0.1}
-            strokeWidth="0.1"
+            strokeWidth={0.1}
             stroke="gray"
           />
         ))}
@@ -64,7 +64,7 @@ function App() {
           <Line
             points={[0, i * 10, window.innerWidth, i * 10]}
             tension={0.1}
-            strokeWidth="0.1"
+            strokeWidth={0.1}
             stroke="gray"
           />
         ))}

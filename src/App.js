@@ -1,22 +1,12 @@
 import createPersistedState from 'use-persisted-state'
 import './App.css'
-import { Stage, Layer, Rect, Line } from 'react-konva'
+import { Stage, Layer, Rect, Line, Text, Group } from 'react-konva'
+import objectRef from './objects'
 
 const useObjectState = createPersistedState('objectState1')
 
 function App() {
-  const [objects, setObjects] = useObjectState([
-    { x: 33, y: 336, fill: '#f0f0f0', width: 300, height: 470 },
-    { x: 340, y: 680, width: 230, height: 125, fill: '#f0f0fa' },
-    { x: 340, y: 338, fill: '#f0faf0', width: 230, height: 330 },
-    { x: 570, y: 485, fill: '#faf0f0', width: 420, height: 320 },
-    { x: 990, y: 335, width: 360, height: 470, fill: '#fff0f0' },
-    { x: 604, y: 319, fill: '#f0fff0', width: 370, height: 160 },
-    { x: 103, y: 338, fill: '#b0b0b0', width: 150, height: 210 },
-    { x: 35, y: 603, fill: '#c0c0c0', width: 66, height: 200 },
-    { x: 992, y: 337, fill: '#d0d0d0', width: 75, height: 150 },
-    { x: 282, y: 596, fill: '#e0e0e0', width: 48, height: 80 },
-  ])
+  const [objects, setObjects] = useObjectState(objectRef)
   function changeDimensions(index) {
     const newObjects = [...objects]
     const { height, width, ...obj } = newObjects[index]
@@ -39,18 +29,29 @@ function App() {
   return (
     <Stage width={window.innerWidth} height={window.innerHeight}>
       <Layer>
-        {objects.map(({ x, y, width, height, fill }, i) => (
-          <Rect
-            x={x}
-            y={y}
-            width={width}
-            height={height}
-            fill={fill}
-            draggable
-            onClick={() => changeDimensions(i)}
-            onDragEnd={(e) => onDragEnd(i, e)}
-          />
-        ))}
+        {objects.map(
+          ({ x, y, width, height, fill, draggable = true, text = '' }, i) => (
+            <Group
+              x={x}
+              y={y}
+              width={width}
+              height={height}
+              fill={fill}
+              draggable={draggable}
+              onClick={draggable ? () => changeDimensions(i) : undefined}
+              onDragEnd={(e) => onDragEnd(i, e)}
+            >
+              <Rect x={0} y={0} width={width} height={height} fill={fill} />
+              <Text
+                text={text}
+                align="center"
+                width={width}
+                fontSize={18}
+                y={height / 2 - 9}
+              />
+            </Group>
+          )
+        )}
         {[...Array(xSteps)].map((_, i) => (
           <Line
             points={[i * 10, 0, i * 10, window.innerHeight]}

@@ -1,6 +1,6 @@
 import createPersistedState from 'use-persisted-state'
 import './App.css'
-import { Stage, Layer, Rect, Line, Text, Group } from 'react-konva'
+import { Stage, Layer, Rect, Line, Text, Group, Arc } from 'react-konva'
 import objectRef from './objects'
 
 const useObjectState = createPersistedState('objectState1')
@@ -30,7 +30,19 @@ function App() {
     <Stage width={window.innerWidth} height={window.innerHeight}>
       <Layer>
         {objects.map(
-          ({ x, y, width, height, fill, draggable = true, text = '' }, i) => (
+          (
+            {
+              type = 'rect',
+              x,
+              y,
+              width,
+              height,
+              fill,
+              draggable = true,
+              text = '',
+            },
+            i
+          ) => (
             <Group
               x={x}
               y={y}
@@ -40,15 +52,36 @@ function App() {
               draggable={draggable}
               onClick={draggable ? () => changeDimensions(i) : undefined}
               onDragEnd={(e) => onDragEnd(i, e)}
+              rotation={type === 'door' ? 180 : 0}
             >
-              <Rect x={0} y={0} width={width} height={height} fill={fill} />
-              <Text
-                text={text}
-                align="center"
-                width={width}
-                fontSize={18}
-                y={height / 2 - 9}
-              />
+              {type === 'rect' ? (
+                <>
+                  <Rect x={0} y={0} width={width} height={height} fill={fill} />
+                  <Text
+                    text={text}
+                    align="center"
+                    width={width}
+                    fontSize={18}
+                    y={height / 2 - 9}
+                  />
+                </>
+              ) : (
+                <>
+                  <Line
+                    points={[0, 0, 0, 90, 90, 90]}
+                    tension={0}
+                    stroke="gray"
+                  />
+                  <Group rotation={-90} y={90}>
+                    <Arc
+                      angle={90}
+                      stroke="gray"
+                      innerRadius={90}
+                      outerRadius={90}
+                    />
+                  </Group>
+                </>
+              )}
             </Group>
           )
         )}

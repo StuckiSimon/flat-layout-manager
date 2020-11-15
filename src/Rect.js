@@ -1,8 +1,11 @@
 import { Rect, Text } from 'react-konva'
+import Tweak from './Tweak'
 
-function Rectangle({ width, height, fill, text }) {
+function Rectangle({ isTweaking, update, data }) {
+  const { width, height, fill, text } = data
   return (
     <>
+      {isTweaking ? <Tweak update={update} data={data} /> : null}
       <Rect x={0} y={0} width={width} height={height} fill={fill} />
       <Text
         text={text}

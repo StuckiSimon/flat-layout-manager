@@ -1,76 +1,201 @@
+function generateId() {
+  return Math.random().toString(36).substr(2, 9)
+}
+
+function generateObject({
+  x,
+  y,
+  fill,
+  width,
+  height,
+  text = '',
+  draggable = true,
+  type = 'rect',
+  rotation = 0,
+}) {
+  return {
+    id: generateId(),
+    type,
+    x,
+    y,
+    fill,
+    width,
+    height,
+    draggable,
+    text,
+    rotation,
+  }
+}
+
+function generateRoomObject({ x, y, fill, width, height }) {
+  return generateObject({ x, y, fill, width, height, draggable: false })
+}
+
 const objects = [
-  { x: 30, y: 330, fill: '#f0f0f0', width: 300, height: 470, draggable: false },
-  {
+  generateRoomObject({
+    x: 30,
+    y: 330,
+    fill: '#f0f0f0',
+    width: 300,
+    height: 470,
+  }),
+  generateRoomObject({
     x: 340,
     y: 680,
     width: 230,
     height: 125,
     fill: '#f0f0fa',
-    draggable: false,
-  },
-  {
+  }),
+  generateRoomObject({
     x: 340,
     y: 330,
     fill: '#f0faf0',
     width: 230,
     height: 330,
-    draggable: false,
-  },
-  {
+  }),
+  generateRoomObject({
     x: 570,
     y: 480,
     fill: '#faf0f0',
     width: 420,
     height: 320,
-    draggable: false,
-  },
-  {
+  }),
+  generateRoomObject({
     x: 990,
     y: 330,
     width: 360,
     height: 470,
     fill: '#fff0f0',
-    draggable: false,
-  },
-  {
+  }),
+  generateRoomObject({
     x: 600,
     y: 320,
     fill: '#f0fff0',
     width: 370,
     height: 160,
-    draggable: false,
-  },
-  { x: 30, y: 370, fill: '#b0b0b0', text: 'Bed', width: 210, height: 150 },
-  { x: 30, y: 730, fill: '#c0c0c0', text: 'Closet', width: 200, height: 66 },
-  { x: 30, y: 540, fill: '#d0d0d0', text: 'Desk', width: 75, height: 150 },
-  { x: 280, y: 520, fill: '#e0e0e0', width: 48, height: 80, text: 'Malm' },
-  { x: 280, y: 600, fill: '#e0e0e0', width: 48, height: 80, text: 'Malm' },
-  {
+  }),
+  generateObject({
+    x: 30,
+    y: 370,
+    fill: '#b0b0b0',
+    text: 'Bed',
+    width: 210,
+    height: 150,
+  }),
+  generateObject({
+    x: 30,
+    y: 730,
+    fill: '#c0c0c0',
+    text: 'Closet',
+    width: 200,
+    height: 66,
+  }),
+  generateObject({
+    x: 30,
+    y: 540,
+    fill: '#d0d0d0',
+    text: 'Desk',
+    width: 75,
+    height: 150,
+  }),
+  generateObject({
+    x: 280,
+    y: 520,
+    fill: '#e0e0e0',
+    width: 48,
+    height: 80,
+    text: 'Malm',
+  }),
+  generateObject({
+    x: 280,
+    y: 600,
+    fill: '#e0e0e0',
+    width: 48,
+    height: 80,
+    text: 'Malm',
+  }),
+  generateObject({
     x: 1120,
     y: 330,
     fill: '#e0e0e0',
     text: 'Friheten L',
     width: 230,
     height: 90,
-  },
-  {
+  }),
+  generateObject({
     x: 1260,
     y: 420,
     fill: '#e0e0e0',
     text: 'Friheten R',
     width: 85,
     height: 60,
-  },
-  { x: 1150, y: 200, fill: '#e0e0e0', text: 'Couch', width: 170, height: 100 },
-  { x: 1160, y: 740, fill: '#e0e0e0', text: 'TV', width: 100, height: 60 },
-  { x: 990, y: 650, fill: '#e0e0e0', text: 'Piano', width: 60, height: 150 },
-  { x: 710, y: 560, fill: '#e0e0e0', text: 'Table', width: 155, height: 90 },
-  { x: 290, y: 410, fill: '#e0e0e0', text: 'Kallax', width: 40, height: 77 },
-  { x: 950, y: 650, fill: '#e0e0e0', text: 'Kallax', width: 40, height: 147 },
-  { x: 30, y: 330, fill: '#e0e0e0', text: 'BT', width: 48, height: 40 },
-  { x: 440, y: 180, fill: '#e0e0e0', text: 'BT', width: 48, height: 40 },
-  { type: 'door', x: 750, y: 570, rotation: 180 },
-  { type: 'door', x: 240, y: 790, rotation: -90 },
+  }),
+  generateObject({
+    x: 1150,
+    y: 200,
+    fill: '#e0e0e0',
+    text: 'Couch',
+    width: 170,
+    height: 100,
+  }),
+  generateObject({
+    x: 1160,
+    y: 740,
+    fill: '#e0e0e0',
+    text: 'TV',
+    width: 100,
+    height: 60,
+  }),
+  generateObject({
+    x: 990,
+    y: 650,
+    fill: '#e0e0e0',
+    text: 'Piano',
+    width: 60,
+    height: 150,
+  }),
+  generateObject({
+    x: 710,
+    y: 560,
+    fill: '#e0e0e0',
+    text: 'Table',
+    width: 155,
+    height: 90,
+  }),
+  generateObject({
+    x: 290,
+    y: 410,
+    fill: '#e0e0e0',
+    text: 'Kallax',
+    width: 40,
+    height: 77,
+  }),
+  generateObject({
+    x: 950,
+    y: 650,
+    fill: '#e0e0e0',
+    text: 'Kallax',
+    width: 40,
+    height: 147,
+  }),
+  generateObject({
+    x: 30,
+    y: 330,
+    fill: '#e0e0e0',
+    text: 'BT',
+    width: 48,
+    height: 40,
+  }),
+  generateObject({
+    x: 440,
+    y: 180,
+    fill: '#e0e0e0',
+    text: 'BT',
+    width: 48,
+    height: 40,
+  }),
+  generateObject({ type: 'door', x: 750, y: 570, rotation: 180 }),
+  generateObject({ type: 'door', x: 240, y: 790, rotation: -90 }),
 ]
 
 export default objects

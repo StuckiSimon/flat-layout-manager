@@ -52,6 +52,7 @@ function App() {
         <Layer>
           {objects.map((data, i) => (
             <Group
+              key={data.id}
               x={data.x}
               y={data.y}
               width={data.width}

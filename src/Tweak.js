@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 const { useTweaks } = require('use-tweaks')
 
 function Tweak({ update, data }) {
-  const [name] = useState(data.text)
+  const [name] = useState(data.id)
   const tweakedData = useTweaks(name, data)
   useEffect(() => {
     update(tweakedData)

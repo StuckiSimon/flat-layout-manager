@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
-
-const { useTweaks } = require('use-tweaks')
+import { useTweaks } from 'use-tweaks'
 
 function Tweak({ update, data }) {
   const [name] = useState(data.id)

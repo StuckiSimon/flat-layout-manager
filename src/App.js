@@ -86,6 +86,7 @@ function App() {
           ))}
           {[...Array(xSteps)].map((_, i) => (
             <Line
+              key={i}
               points={[i * 10, 0, i * 10, window.innerHeight]}
               tension={0.1}
               strokeWidth={0.1}
@@ -94,6 +95,7 @@ function App() {
           ))}
           {[...Array(ySteps)].map((_, i) => (
             <Line
+              key={i}
               points={[0, i * 10, window.innerWidth, i * 10]}
               tension={0.1}
               strokeWidth={0.1}

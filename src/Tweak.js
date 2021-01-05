@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useTweaks } from 'use-tweaks'
 
-function Tweak({ update, data }) {
-  const [name] = useState(data.id)
+function Tweak({ update, data: { id, ...data } }) {
+  const [name] = useState(id)
   const tweakedData = useTweaks(name, data)
   useEffect(() => {
     update(tweakedData)

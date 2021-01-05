@@ -28,7 +28,10 @@ function App() {
   const updateItem = useCallback(
     (data) => {
       const newObjects = [...objectRefs.current]
-      newObjects[selected] = data
+      newObjects[selected] = {
+        ...newObjects[selected],
+        ...data,
+      }
       setObjects(newObjects)
     },
     [setObjects, selected]

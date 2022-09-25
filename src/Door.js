@@ -1,4 +1,4 @@
-import { Line, Group, Arc } from 'react-konva'
+import { Line, Group, Arc } from "react-konva";
 
 function Door({ rotation }) {
   return (
@@ -8,7 +8,7 @@ function Door({ rotation }) {
         <Arc angle={90} stroke="gray" innerRadius={90} outerRadius={90} />
       </Group>
     </Group>
-  )
+  );
 }
 
-export default Door
+export default Door;

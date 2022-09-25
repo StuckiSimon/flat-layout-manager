@@ -1,5 +1,5 @@
 function generateId() {
-  return Math.random().toString(36).substr(2, 9)
+  return Math.random().toString(36).substr(2, 9);
 }
 
 function generateObject({
@@ -8,9 +8,9 @@ function generateObject({
   fill,
   width,
   height,
-  text = '',
+  text = "",
   draggable = true,
-  type = 'rect',
+  type = "rect",
   rotation = 0,
 }) {
   return {
@@ -24,176 +24,128 @@ function generateObject({
     draggable,
     text,
     rotation,
-  }
+  };
 }
 
 function generateRoomObject({ x, y, fill, width, height, text }) {
-  return generateObject({ x, y, fill, width, height, text, draggable: false })
+  return generateObject({ x, y, fill, width, height, text, draggable: false });
 }
 
 const objects = [
   generateRoomObject({
     x: 90,
     y: 120,
-    fill: '#C2EFEB',
-    text: 'Stube',
+    fill: "#C2EFEB",
+    text: "Stube",
     width: 500,
     height: 320,
-  }),
-  generateRoomObject({
-    x: 220,
-    y: 440,
-    fill: '#9BBEC7',
-    text: 'Essen',
-    width: 320,
-    height: 260,
   }),
   generateRoomObject({
     x: 1060,
     y: 370,
-    fill: '#FFBF81',
-    text: 'Zimmer',
+    fill: "#FFBF81",
+    text: "Zimmer",
     width: 450,
     height: 320,
-  }),
-  generateRoomObject({
-    x: 590,
-    y: 260,
-    fill: '#f0fff0',
-    text: 'Gang',
-    width: 450,
-    height: 180,
-  }),
-  generateRoomObject({
-    x: 540,
-    y: 440,
-    fill: '#ECFEE8',
-    text: 'KucheBad',
-    width: 500,
-    height: 250,
   }),
   generateObject({
     x: 1320,
     y: 370,
-    fill: '#b0b0b0',
-    text: 'Bed',
+    fill: "#b0b0b0",
+    text: "Bed",
     width: 150,
     height: 210,
   }),
   generateObject({
     x: 1060,
     y: 470,
-    fill: '#c0c0c0',
-    text: 'Closet',
+    fill: "#c0c0c0",
+    text: "Closet",
     width: 66,
     height: 200,
   }),
   generateObject({
     x: 440,
     y: 120,
-    fill: '#d0d0d0',
-    text: 'Desk',
+    fill: "#d0d0d0",
+    text: "Desk",
     width: 150,
     height: 75,
   }),
   generateObject({
     x: 1420,
     y: 640,
-    fill: '#e0e0e0',
+    fill: "#e0e0e0",
     width: 80,
     height: 48,
-    text: 'Malm',
+    text: "Malm",
   }),
   generateObject({
     x: 1340,
     y: 640,
-    fill: '#e0e0e0',
+    fill: "#e0e0e0",
     width: 80,
     height: 48,
-    text: 'Malm',
+    text: "Malm",
   }),
   generateObject({
     x: 90,
     y: 120,
-    fill: '#e0e0e0',
-    text: 'Friheten L',
+    fill: "#e0e0e0",
+    text: "Friheten L",
     width: 230,
     height: 90,
   }),
   generateObject({
     x: 90,
     y: 210,
-    fill: '#e0e0e0',
-    text: 'Friheten R',
+    fill: "#e0e0e0",
+    text: "Friheten R",
     width: 85,
     height: 60,
   }),
   generateObject({
-    x: 840,
-    y: 70,
-    fill: '#e0e0e0',
-    text: 'Couch',
-    width: 170,
-    height: 100,
-  }),
-  generateObject({
     x: 90,
     y: 390,
-    fill: '#e0e0e0',
-    text: 'TV',
+    fill: "#e0e0e0",
+    text: "TV",
     width: 80,
     height: 48,
   }),
   generateObject({
-    x: 1160,
-    y: 630,
-    fill: '#e0e0e0',
-    text: 'Piano',
-    width: 150,
-    height: 60,
-  }),
-  generateObject({
     x: 310,
     y: 480,
-    fill: '#e0e0e0',
-    text: 'Table',
+    fill: "#e0e0e0",
+    text: "Table",
     width: 155,
     height: 90,
   }),
   generateObject({
-    x: 400,
-    y: 120,
-    fill: '#e0e0e0',
-    text: 'Kallax',
-    width: 40,
-    height: 77,
-  }),
-  generateObject({
     x: 300,
     y: 660,
-    fill: '#e0e0e0',
-    text: 'Kallax',
+    fill: "#e0e0e0",
+    text: "Kallax",
     width: 147,
     height: 40,
   }),
   generateObject({
     x: 1280,
     y: 370,
-    fill: '#e0e0e0',
-    text: 'BT',
+    fill: "#e0e0e0",
+    text: "BT",
     width: 40,
     height: 48,
   }),
-  generateObject({
+  /*generateObject({
     x: 1470,
     y: 370,
     fill: '#e0e0e0',
     text: 'BT',
     width: 40,
     height: 48,
-  }),
+  }),*/
   //generateObject({ type: 'door', x: 750, y: 570, rotation: 180 }),
   //generateObject({ type: 'door', x: 240, y: 790, rotation: -90 }),
-]
+];
 
-export default objects
+export default objects;
